@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hub</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/basic.css">
+  <link rel="stylesheet" href="src/styles/login.css">
+  <script src="src/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/cookies.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="main-container layout center">
+    <form>
+      <div class="layout center vertical">
+
+        <div class="imgcontainer">
+          <img src="src/image/teller-avatar.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="form-container layout vertical">
+
+          <div class="input layout">
+            <label for="cf"><b>CF</b></label>
+            <input id="cf" type="text" name="cf" title="Insert CF">
+          </div>
+
+          <div class="input layout">
+            <label for="password"><b>Password</b></label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+          </div>
+
+          <span id="accountError" class="error-msg"></span>
+
+          <button class="input" onclick="onSubmit()">Login</button>
+          <label>
+            <input type="checkbox" name="remember"> Remember me
+          </label>
+        </div>
+        <span id="serverError" class="error-msg"></span>
+      </div>
+    </form>
+  </div>
+
+  <script src="src/js/login.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

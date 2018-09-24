@@ -1,0 +1,49 @@
+[
+  {
+    "candidate": {
+      "name": "Paolo",
+      "surname": "Rossi"
+    },
+    "lists": [
+      {
+        "name": "Lista1",
+        "members": [
+          {
+            "name": "Giuseppe",
+            "surname": "Pagnotto"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "candidate": {
+      "name": "Mario",
+      "surname": "Bianchi"
+    },
+    "lists": [
+      {
+        "name": "Lista2",
+        "members": [
+          {
+            "name": "Francesco",
+            "surname": "Fallaci"
+          }
+        ]
+      },
+      {
+        "name": "Lista3",
+        "members": [
+          {
+            "name": "Michele",
+            "surname": "Fiorentino"
+          },
+          {
+            "name": "Ferdinando",
+            "surname": "Demicheli"
+          }
+        ]
+      }
+    ]
+  }
+]

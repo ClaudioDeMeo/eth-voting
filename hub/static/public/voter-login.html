@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Voter</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/basic.css">
+  <link rel="stylesheet" href="src/styles/voter-login.css">
+  <script src="src/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/instantscan.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="header layout">
+  </div>
+  <div class="main-container layout center">
+    <div class="layout vertical center">
+      <span>Scan your QR code with the camera!</span>
+      <video id="video" autoplay></video>
+      <span id="token"></span>
+      <span id="errorMex"></span>
+    </div>
+  </div>
+  <script src="src/js/voter-login.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

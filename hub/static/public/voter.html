@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Voter</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/basic.css">
+  <link rel="stylesheet" href="src/styles/voter.css">
+  <script src="src/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="header layout">
+    <div class="layout start">
+      <span>Time remaining:&nbsp;</span>
+      <span><b id="timer">0</b></span>
+      <span>&nbsp;seconds</span>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="layout vertical">
+      <div id="model" class="model layout vertical wrap grow"></div>
+      <div class="footer layout end">
+        <button id="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+  <script src="src/js/voter.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

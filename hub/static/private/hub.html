@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hub</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/basic.css">
+  <link rel="stylesheet" href="src/styles/hub.css">
+  <script src="src/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/cookies.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/socket.io.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="header layout">
+    <div class="vertical center">
+      <div class="imgcontainer">
+        <img src="src/image/hub-avatar.png" alt="Avatar" class="avatar">
+      </div>
+      <a id="exitBtn" href="/exit" class="btn layout center" title="Exit">Exit</a>
+    </div>
+  </div>
+  <div class="main-container layout center">
+    <div class="layout vertical">
+      <div class="layout horizontal wrap">
+        <div class="account vertical center">
+          <div class="imgcontainer layout vertical center">
+            <img src="src/image/hub-avatar.png" alt="Avatar" class="avatar">
+            <span><b id="hubname"></b></span>
+          </div>
+          <label for="address"><b>Address</b></label>
+          <span id="address" name="address" class="layout center"></span>
+        </div>
+        <div class="layout vertical start grow">
+          <div class="layout horizontal end tabs">
+            <button id="addBtn" class="btn" disabled>Add</button>
+            <button id="searchBtn" class="btn">Search</button>
+          </div>
+
+          <div class="layout horizontal grow">
+            <div class="layout vertical grow">
+              <div class="line layout horizontal center start grow wrap">
+                <div class="layout vertical">
+                  <div class="layout horizontal">
+                    <b>Total:</b>&nbsp;<div id="total" class="stats">0</div>
+                  </div>
+                  <div class="layout horizontal">
+                    <b>Voted:</b>&nbsp;<div id="voted" class="stats">0</div>
+                  </div>
+                  <div class="layout horizontal">
+                    <b>Not Voted:</b>&nbsp;<div id="notVoted" class="stats">0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="percContainer" class="layout center grow">
+              <span><b id="perc">0.00</b></span><span><b>%</b></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <hr>
+      <div class="form layout vertical grow">
+        <form>
+
+          <div class="line layout horizontal wrap">
+            <div class="field layout vertical grow">
+              <label for="entryType"><b>Type</b></label>
+              <select id="entryType" name="entryType" title="Change Entry type">
+                <option value="voters" selected>Voters</option>
+                <option value="tellers">Tellers</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="tellers line layout horizontal wrap">
+            <div class="field layout vertical grow">
+              <label for="email"><b>e-mail</b></label>
+              <input type="email" id="email" name="email" placeholder="example@domain.com" title="Insert e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+            <div class="add field layout vertical grow">
+              <label for="password"><b>Password</b></label>
+              <input type="text" id="password" name="password" title="Insert Password. Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+            </div>
+          </div>
+
+          <div class="line layout horizontal grow wrap">
+            <div class="field layout vertical grow">
+              <label for="name"><b>Name</b></label>
+              <input type="text" id="name" name="name" title="Insert Name">
+            </div>
+            <div class="field layout vertical grow">
+              <label for="surname"><b>Surname</b></label>
+              <input type="text" id="surname" name="surname" title="Insert Surname">
+            </div>
+            <div class="field layout vertical grow">
+              <label for="cf"><b>CF</b></label>
+              <input type="text" id="cf" name="cf" title="Insert CF">
+            </div>
+          </div>
+
+          <div class="line layout horizontal grow wrap">
+            <div class="field layout vertical grow">
+              <label for="doctype"><b>Document Type</b></label>
+              <select id="doctype" name="doctype" title="Change document type">
+                <option value="identity card" selected>Identity Card</option>
+                <option value="driving license">Driving License</option>
+              </select>
+            </div>
+            <div class="field layout vertical grow">
+              <label for="docid"><b>Document ID</b></label>
+              <input type="text" id="docid" name="docid" title="Insert document id">
+            </div>
+
+            <div class="add voters field layout vertical grow">
+              <label for="pin"><b>Bot pin</b></label>
+              <input type="password" id="pin" name="pin" title="Insert telegram bot pin" pattern="/[0-9]/" minlength="5" maxlength="5">
+            </div>
+          </div>
+
+          <div class="voters line layout horizontal grow wrap">
+            <div class="field layout vertical grow">
+              <label for="birthDay"><b>Birth Day</b></label>
+              <input type="date" id="birthDay" name="birthDay" min="1890-01-01" title="Insert Birth day">
+            </div>
+            <div class="field layout vertical grow">
+              <label for="birthPlace"><b>Birth Place</b></label>
+              <input type="text" id="birthPlace" name="birthPlace" title="Insert Birth place">
+            </div>
+            <div class="field layout vertical grow">
+              <label for="birthProvince"><b>Province</b></label>
+              <input type="text" id="birthProvince" name="birthProvince" title="Insert Birth province">
+            </div>
+          </div>
+
+          <div class="voters line layout horizontal wrap">
+            <div class="field layout vertical">
+              <label for="cap"><b>CAP</b></label>
+              <input type="text" id="cap" name="cap" title="Insert CAP">
+            </div>
+            <div class="field layout vertical grow">
+              <label for="city"><b>City</b></label>
+              <input type="text" id="city" name="city" title="Insert City">
+            </div>
+            <div class="field layout vertical grow">
+              <label for="province"><b>Province</b></label>
+              <input type="text" id="province" name="province" title="Insert province">
+            </div>
+          </div>
+
+          <div class="voters line layout horizontal wrap">
+            <div class="field layout vertical grow">
+              <label for="via"><b>Address</b></label>
+              <input type="text" id="via" name="via" title="Insert address">
+            </div>
+            <div class="field layout vertical">
+              <label for="number"><b>Number</b></label>
+              <input type="text" id="number" name="number" title="Insert address'number">
+            </div>
+          </div>
+
+          <div class="line layout horizontal wrap">
+            <div class="field layout vertical">
+              <label for="hub"><b>Hub</b></label>
+              <input type="text" id="hub" name="hub" title="Insert Hub">
+            </div>
+          </div>
+
+          <div class="line layout horizontal center end wrap">
+            <div class="line layout horizontal msg grow">
+              <span id="infoMessage"></span><span id="errorMessage"></span>
+            </div>
+            <button id="submit" class="btn" onclick="onSubmit()">Submit</button>
+            <span class="add">&nbsp;or&nbsp;</span>
+            <input type="file" id="fileInput" name="files" accept=".csv" hidden></input>
+            <button id="submitCSV" class="add btn" onclick="onSubmitCSV()">Submit CSV list</button>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="list layout vertical">
+        <div class="line layout horizontal center end wrap">
+          <div class="line layout horizontal msg grow">
+            <span id="entryFound"></span>
+          </div>
+          <button id="submit" class="btn" onclick="resetList()">Reset</button>
+        </div>
+        <div class="layout vertical center start">
+          <table id="table" class="hidden">
+            <thead id="head">
+              <th title="CF">CF</th>
+              <th title="Name">Name</th>
+              <th title="Surname">Surname</th>
+              <th title="Document ID">Document ID</th>
+              <th title="Hub">Hub</th>
+              <th title="e-mail" class="tellers">e-mail</th>
+              <th title="Birth day" class="voters">Birth day</th>
+              <th title="City" class="voters">City</th>
+              <th title="Address" class="voters">Address</th>
+              <th title="Voted" class="voters">Voted</th>
+            </thead>
+            <tbody id="list">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="src/js/hub.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

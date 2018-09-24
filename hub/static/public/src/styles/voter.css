@@ -1,0 +1,126 @@
+body{
+  background: #f8c4db;
+}
+
+.header{
+  position: absolute;
+  top: 0px;
+  height: 107px;
+  width: 100vw;
+  background-color: #efefef;
+  flex-direction: row-reverse;
+}
+
+.header > div{
+  margin-right: 5%;
+}
+
+.main-container{
+  height: calc(100vh - 120px);
+  width: calc(100vw - 330px - 10%);
+  margin-top: 75px;
+  margin-right: calc(150px + 5%);
+  margin-left: calc(150px + 5%);
+  margin-bottom: 45px;
+}
+
+.main-container > *{
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  z-index: 1;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.08);
+  overflow: auto;
+}
+
+@media screen and (max-width: 1080px){
+  .main-container{
+    height: calc(100vh - 165px);
+    width: calc(100vw - 10%);
+    margin-top: 120px;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 45px;
+  }
+}
+
+.fullscreen{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+button{
+  margin: 5px 15px 10px 0px;
+  width: 75px;
+}
+
+.model{
+  max-height: calc(100% - 36px);
+  overflow: auto;
+  padding: 5px;
+  background-image: url("../image/background.png");
+  background-repeat: repeat;
+}
+
+.candidate{
+  width: 464px;
+  margin: 5px;
+}
+
+.candidateName{
+  font-size: larger;
+}
+
+.box{
+  position: relative;
+  background: #fafafa;
+  border: 1px solid black;
+}
+
+.list{
+  width: 230px;
+}
+
+.listName{
+  border: 1px solid;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  margin: 5px;
+}
+
+ul{
+  padding-left: 20px;
+}
+
+li{
+  font-size: small;
+}
+
+.footer{
+  background: #cabac1;
+}
+
+.candidateName,.listName{
+  cursor: pointer;
+}
+
+.image{
+  position: absolute;
+  z-index: 10;
+}
+
+.image>img{
+  width: 50px;
+}
+
+.imageBig>img{
+  width: 80px;
+}

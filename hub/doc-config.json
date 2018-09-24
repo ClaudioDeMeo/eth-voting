@@ -1,0 +1,38 @@
+{
+  "plugins": [
+    "plugins/markdown",
+    "plugins/summarize"
+  ],
+  "recurseDepth": 10,
+  "source": {
+    "include": [
+      "lib/adb.js",
+      "lib/web.js",
+      "hub.js",
+      "lib/node.js",
+      "config.js",
+      "lib/utils.js"
+      "model/*",
+      "controllers/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "node",
+      "doc",
+      "app.min.js",
+      "app.min.js.map",
+      "doc-config.js",
+      "webpack.config.*",
+      "yarn.lock"
+    ]
+  },
+  "sourceType": "module",
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

@@ -1,0 +1,41 @@
+body{
+  margin:0;
+  font-family: Roboto;
+}
+
+.layout{
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.horizontal{
+  flex-direction: row;
+}
+
+.vertical{
+  flex-direction: column;
+  flex-wrap: nowrap !important;
+}
+
+.center{
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.start{
+  justify-content: flex-start;
+}
+
+.end{
+  justify-content: flex-end;
+}
+
+.grow{
+  flex-grow: 1;
+}
+
+.wrap{
+  flex-wrap: wrap !important;
+}

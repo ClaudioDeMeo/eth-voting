@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Miner</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/basic.css">
+  <link rel="stylesheet" href="src/styles/miner.css">
+  <script src="src/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/socket.io.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/cookies.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/lib/filesystem.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="header layout">
+    <div class="vertical center">
+      <div class="imgcontainer">
+        <img src="src/image/miner-avatar.png" alt="Avatar" class="avatar">
+      </div>
+      <a id="exitBtn" href="/exit" class="layout center" title="Exit">Exit</a>
+    </div>
+  </div>
+  <div class="main-container layout center">
+    <div class="layout vertical">
+      <div class="layout horizontal wrap">
+        <div class="account vertical center">
+          <div class="imgcontainer">
+            <img src="src/image/miner-avatar.png" alt="Avatar" class="avatar">
+          </div>
+          <label for="address"><b>Address</b></label>
+          <span id="address" name="address" class="layout center"></span>
+        </div>
+        <div class="layout horizontal center start grow">
+          <img src="src/image/eth-icon.png" alt="Icon" class="icon">
+          <div class="amount">
+            <span id="balance">0</span>
+            <span>ETH</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="layout vertical grow">
+        <div class="layout horizontal wrap grow">
+          <div class="layout vertical">
+            <div class="layout horizontal center">
+              <label for="threads"><b>Threads:</b></label>
+              <input
+              type="number"
+              id="threads"
+              name="threads"
+              placeholder="Deafult: 1"
+              min="1" max="8"/>
+              <button type="button" name="mineBtn" id="mineBtn">
+                <img class="button" src="src/image/pick.png" alt="Mine">
+              </button>
+            </div>
+            <div class="layout center">
+              <img id="fun" src="src/image/mining.gif" alt="Fun Image" hidden>
+            </div>
+          </div>
+          <div class="layout horizontal center grow table">
+            <table id="table" class="hidden">
+              <caption><b>Mined Block</b></caption>
+              <thead id="head">
+                <th title="Number">Number</th>
+                <th title="Hash">Hash</th>
+                <th title="Gas Limit">Gas Limit</th>
+                <th title="Gas Used">Gas Used</th>
+                <th title="Transactions">Transactions</th>
+                <th title="Timestamp">Timestamp</th>
+              </thead>
+              <tbody id="data">
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="6">
+                    <button type="button" name="mineBtn" id="saveBtn" title="Save" onclick="downloadFile()">
+                      <img class="button" src="src/image/save.png" alt="Mine">
+                    </button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <div class="layout horizontal info">
+          <div>
+            <span class="cpu-info">CPU:</span>
+            <span id="cpu">0</span>
+            <span class="cpu-info">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="src/js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
