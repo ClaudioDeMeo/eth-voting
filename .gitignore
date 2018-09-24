@@ -1,0 +1,12 @@
+node
+node_modules
+app.min.js
+app.min.js.map
+yarn.lock
+miner/sslcert/server.*
+hub/sslcert/server.*
+voting-contract/endpointDB/sslcert/server.*
+hub/voter-launcher/Voter.desktop
+voting-contract/bin
+voting-contract/voting.js
+README.md
