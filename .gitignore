@@ -1,5 +1,6 @@
 node
 node_modules
+doc
 app.min.js
 app.min.js.map
 yarn.lock
