@@ -10,4 +10,3 @@ voting-contract/endpointDB/sslcert/server.*
 hub/voter-launcher/Voter.desktop
 voting-contract/bin
 voting-contract/voting.js
-README.md
