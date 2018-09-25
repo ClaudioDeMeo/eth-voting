@@ -8,7 +8,7 @@
 module.exports = {
 
   /** MongoDb URL*/
-  MONGO_URL: 'mongodb://hub:hub1234@ds151292.mlab.com:51292/eth-voting',
+  MONGO_URL: 'mongodb://user:password@ds151292.mlab.com:51292/eth-voting',
 
   /** Crypto Secret */
   SECRET: 'secret1234567890',
