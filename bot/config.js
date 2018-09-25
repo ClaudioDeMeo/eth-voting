@@ -14,6 +14,6 @@ module.exports = {
   SECRET: 'secret1234567890',
 
   /** Telegram Bot Token */
-  TELEGRAM_TOKEN: '564509148:AAHSNYV_YclhlY0WglP8IdGd7WOu6NQNwYo',
+  TELEGRAM_TOKEN: '*********************************************',  //CHANGE ME WITH TELEGRAM TOKEN
 
 }
