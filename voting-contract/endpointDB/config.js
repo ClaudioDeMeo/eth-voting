@@ -32,7 +32,7 @@ module.exports = {
   GETH_PORT: 30309,
 
   /** MongoDb URL with Teller (readonly) access */
-  MONGO_URL: 'mongodb://teller:teller1234@ds151292.mlab.com:51292/eth-voting',
+  MONGO_URL: 'mongodb://user:password@ds151292.mlab.com:51292/eth-voting',
 
   /** Voting model path */
   VOTING_MODEL: path.join(path.resolve(), "voting-model.json"),
