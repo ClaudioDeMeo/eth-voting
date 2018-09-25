@@ -47,10 +47,10 @@ module.exports = {
   GETH_PORT: 30304,
 
   /** MongoDb URL with Hub access*/
-  MONGO_HUB_URL: 'mongodb://hub:hub1234@ds151292.mlab.com:51292/eth-voting',
+  MONGO_HUB_URL: 'mongodb://user:password@ds151292.mlab.com:51292/eth-voting',
 
   /** MongoDb URL with Teller access*/
-  MONGO_TELLER_URL: 'mongodb://teller:teller1234@ds151292.mlab.com:51292/eth-voting',
+  MONGO_TELLER_URL: 'mongodb://user:password@ds151292.mlab.com:51292/eth-voting',
 
   /** Crypto Secret */
   SECRET: 'secret1234567890',
