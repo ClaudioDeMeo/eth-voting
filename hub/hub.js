@@ -499,6 +499,7 @@ server.public.post('/authOtp/:id', function(req, res){
 server.public.post('/submitVote', function(req, res){
   if (web3 && voters && hub && contract){
     if (req.session.token && req.session._id){
+      var voterID = req.session._id;
       voters.authOtp(req.session._id, req.session.token)
         .then((result) =>{
           if (result.auth){
@@ -509,20 +510,28 @@ server.public.post('/submitVote', function(req, res){
                     var password = crypto.decrypt(hubs[0].password);
                     web3.eth.personal.unlockAccount(account, password, 3600)
                       .then(async () => {
-                        voters.setVoted(req.session._id)
+                        voters.hasVoted(req.session._id)
                         .then((data) => {
                           if (data && !data.error){
                             if (!req.body.list && req.body.candidate){
                               contract.methods.voteCandidate(req.body.candidate).estimateGas()
                                 .then(async (gas)=>{
-                                  debug("input", req.body.candidate)
                                   contract.methods.voteCandidate(req.body.candidate).send({
                                     gas: Math.round(gas+gas*20/100)
                                   })
-                                    .then((e) => {
-                                      debug("then",e);
+                                    .then((block) => {
+                                      debug("then", block);
+                                      voters.setVoted(voterID)
+                                        .then((e) =>{
+                                          debug(e)
+                                          res.json({ready: true, result: e.result, tx: block.transactionHash});
+                                        })
+                                        .catch((e)=>{
+                                          res.json({ready: true, result: false});
+                                        });
                                     }).catch((e,r)=> {
-                                      debug("catch", e)
+                                      debug("catch", e);
+                                      res.json({ready: true, result: false});
                                     });
                                 })
                                 .catch((e)=>{
@@ -536,10 +545,18 @@ server.public.post('/submitVote', function(req, res){
                                   contract.methods.voteList(c, l).send({
                                     gas: Math.round(gas+gas*20/100)
                                   })
-                                    .then((e) => {
-                                      debug("then",e);
+                                    .then((block) => {
+                                      debug("then",block);
+                                      voters.setVoted(voterID)
+                                        .then((e) =>{
+                                          res.json({ready: true, result: e.result, tx: block.transactionHash});
+                                        })
+                                        .catch((e)=>{
+                                          res.json({ready: true, result: false});
+                                        });
                                     }).catch((e)=>{
                                       debug("catch", e);
+                                      res.json({ready: true, result: false});
                                     });
                                 })
                                 .catch((e) =>{
@@ -549,7 +566,6 @@ server.public.post('/submitVote', function(req, res){
                             delete req.session._id;
                             delete req.session.auth;
                             delete req.session.token;
-                            res.json({ready: true, result: data.result});
                           }else{
                             res.json({ready: true, error: (data && data.error) || "Error"});
                           }
