@@ -133,7 +133,7 @@ $(document).ready(function(){
   $('#submit').click(function(){
     $.post('/submitVote',{candidate: candidateId, list: listId}, function(data, status){
       if (status && data.ready){
-        fullScreenMsg(data.result || data.error, function(){
+        fullScreenMsg(data.tx || data.error, function(){
           location.reload();
         });
       }else{
