@@ -100,10 +100,14 @@ function getData(){
     winnerListsData.y = [];
     winnerLists.forEach(function(element){
       winnerListsData.x = winnerListsData.x.concat(element.lists.map(function(e){
-        return e.list.name + " (" + e.list.votes + " votes)";
+        if (e.list){
+          return e.list.name + " (" + e.list.votes + " votes)";
+        }
       }));
       winnerListsData.y = winnerListsData.y.concat(element.lists.map(function(e){
-        return parseInt(e.list.votes);
+        if (e.list){
+          return parseInt(e.list.votes);
+        }
       }));
       winnerListsData.text = winnerListsData.y;
     });
